@@ -1,62 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
-    // Gets the button that opens/closes the menu and the menu element itself.
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('.nav-menu');
+    // 1. Mobile Menu (Hamburger) Toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const closeMobileNavBtn = document.querySelector('.close-mobile-nav');
+    const toggleFiltersBtn = document.querySelector('.toggle-filters-btn');
+    const filterPanel = document.querySelector('.filter-panel');
 
-    /**
-     * Toggles the 'open' class on the navigation menu when the hamburger icon is clicked.
-     * The 'open' class is what the CSS uses to show the menu on mobile.
-     */
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('open');
+    // Open mobile navigation
+    hamburgerMenu.addEventListener('click', () => {
+        mobileNavOverlay.classList.add('open');
     });
 
-    // 2. Amenity Chip Toggle
-    // Gets all elements with the class 'chip'
-    const chips = document.querySelectorAll('.chip');
-    
-    /**
-     * Iterates over all amenity chips to add a click listener.
-     */
-    chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            // Toggles the 'active' class to change the chip's styling (CSS handles the color change).
-            chip.classList.toggle('active');
-
-            // Optionally call a function to log or update the selected data.
-            updateSelectedAmenities();
-        });
+    // Close mobile navigation
+    closeMobileNavBtn.addEventListener('click', () => {
+        mobileNavOverlay.classList.remove('open');
     });
 
-    /**
-     * Function to track which amenities are currently selected (for console logging).
-     * In a real application, this logic would update a hidden form field before submission.
-     */
-    function updateSelectedAmenities() {
-        const selected = Array.from(chips)
-            // Filter down to only those chips that currently have the 'active' class
-            .filter(chip => chip.classList.contains('active'))
-            // Map the filtered elements to their data-amenity attribute value
-            .map(chip => chip.dataset.amenity);
-        
-        console.log('Selected Amenities:', selected);
+    // Optional: Close mobile nav if clicking outside the content (on the overlay itself)
+    mobileNavOverlay.addEventListener('click', (event) => {
+        if (event.target === mobileNavOverlay) {
+            mobileNavOverlay.classList.remove('open');
+        }
+    });
+
+    // 2. Mobile Filter Panel Toggle (within the mobile nav overlay)
+    // Initially hide the filter panel on mobile via CSS class
+    if (window.innerWidth <= 992px) { // Adjust breakpoint to match CSS @media query
+        filterPanel.classList.add('mobile-hidden');
     }
 
-    // 3. Optional: Auto-Set Date Picker type on focus for better UX
-    // This ensures the placeholder text is visible until the user clicks/taps the field.
-    const dateInputs = document.querySelectorAll('.date-picker input');
-    dateInputs.forEach(input => {
-        input.addEventListener('focus', () => {
-            // Change input type to 'date' only when the field is focused
-            input.type = 'date';
-        });
-        input.addEventListener('blur', () => {
-            // Revert input type to 'text' if it's empty to show the placeholder again
-            if (!input.value) {
-                input.type = 'text';
-            }
-        });
+    toggleFiltersBtn.addEventListener('click', () => {
+        // Close the mobile nav overlay first
+        mobileNavOverlay.classList.remove('open'); 
+        
+        // Then toggle the visibility of the filter panel
+        filterPanel.classList.toggle('mobile-hidden');
+
+        // Optional: Scroll to the filter panel if it's revealed
+        if (!filterPanel.classList.contains('mobile-hidden')) {
+            filterPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 
+    // 3. Amenity/Filter Checkbox Interaction (no special JS needed, default checkbox behavior)
+    // The previous 'chip' logic is no longer needed as per the image's checkbox style.
+    // If you want to add custom styling for checked states, you'd do it in CSS.
+    // Example: label input[type="checkbox"]:checked + span { ... }
+});
+
+// Optional: Add event listener to update breakpoint-dependent states on resize
+window.addEventListener('resize', () => {
+    const filterPanel = document.querySelector('.filter-panel');
+    if (window.innerWidth > 992px) { // Desktop view
+        filterPanel.classList.remove('mobile-hidden');
+    } else { // Mobile view
+        filterPanel.classList.add('mobile-hidden');
+    }
 });
