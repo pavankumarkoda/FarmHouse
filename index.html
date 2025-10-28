@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmStay | Find & Book Farmhouses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-leaf logo-icon"></i> FarmStay
+        </div>
+        <nav class="nav-menu">
+            <a href="#">Home</a>
+            <a href="#">Farmhouses</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <button class="login-btn">Login</button>
+        </nav>
+        <button class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Find & Book Beautiful Farmhouses Near You <span class="emoji">🌿</span></h1>
+            <p class="hero-subtitle">Escape the city — enjoy peace, greenery, and comfort.</p>
+        </div>
+
+        <div class="booking-card">
+            <form class="booking-form">
+                <div class="input-group full-width">
+                    <i class="fas fa-map-marker-alt input-icon"></i>
+                    <input type="text" placeholder="Enter city or region">
+                </div>
+
+                <div class="input-group half-width">
+                    <i class="fas fa-home input-icon"></i>
+                    <select>
+                        <option value="" disabled selected hidden>Farmhouse Type</option>
+                        <option value="villa">Private Villa</option>
+                        <option value="pool">Pool Farmhouse</option>
+                        <option value="pet">Pet-Friendly Stay</option>
+                        <option value="luxury">Luxury Farmhouse</option>
+                    </select>
+                </div>
+                
+                <div class="input-group date-picker">
+                    <i class="fas fa-calendar-alt input-icon"></i>
+                    <label for="checkin" class="sr-only">Check-in Date</label>
+                    <input type="text" id="checkin" placeholder="Check-in Date" onfocus="(this.type='date')">
+                </div>
+                
+                <div class="input-group date-picker">
+                    <i class="fas fa-calendar-alt input-icon"></i>
+                    <label for="checkout" class="sr-only">Check-out Date</label>
+                    <input type="text" id="checkout" placeholder="Check-out Date" onfocus="(this.type='date')">
+                </div>
+                
+                <div class="input-group half-width">
+                    <i class="fas fa-users input-icon"></i>
+                    <select>
+                        <option value="" disabled selected hidden>Guests</option>
+                        <option value="2">2 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="6">6+ Guests</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width budget-range">
+                    <label>Budget Range: ₹5,000 – ₹20,000</label>
+                    <input type="range" min="5000" max="20000" value="12500">
+                </div>
+                
+                <div class="amenities-group full-width">
+                    <label>Amenities:</label>
+                    <div class="amenity-chips">
+                        <span class="chip" data-amenity="pool">Pool</span>
+                        <span class="chip" data-amenity="bbq">BBQ</span>
+                        <span class="chip" data-amenity="wifi">WiFi</span>
+                        <span class="chip" data-amenity="parking">Parking</span>
+                        <span class="chip" data-amenity="garden">Garden</span>
+                        <span class="chip" data-amenity="kitchen">Kitchen</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="search-btn full-width">Find Farmhouses</button>
+            </form>
+        </div>
+    </main>
+
+    <section class="featured-section">
+        <h2>Featured FarmStays</h2>
+        <div class="featured-grid">
+            
+            <div class="farmhouse-card">
+                <img src="https://picsum.photos/400/300?random=1" alt="The Willow Creek Retreat" class="card-img">
+                <div class="card-info">
+                    <h3 class="farmhouse-name">The Willow Creek Retreat</h3>
+                    <p class="farmhouse-price">₹8,500 / night</p>
+                    <div class="farmhouse-rating">
+                        <span class="rating-stars">4.8 ⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="farmhouse-card">
+                <img src="https://picsum.photos/400/300?random=2" alt="Poolside Country Home" class="card-img">
+                <div class="card-info">
+                    <h3 class="farmhouse-name">Poolside Country Home</h3>
+                    <p class="farmhouse-price">₹10,200 / night</p>
+                    <div class="farmhouse-rating">
+                        <span class="rating-stars">4.5 ⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="farmhouse-card">
+                <img src="https://picsum.photos/400/300?random=3" alt="Sunrise Valley Farm" class="card-img">
+                <div class="card-info">
+                    <h3 class="farmhouse-name">Sunrise Valley Farm</h3>
+                    <p class="farmhouse-price">₹6,150 / night</p>
+                    <div class="farmhouse-rating">
+                        <span class="rating-stars">4.9 ⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="farmhouse-card desktop-only">
+                <img src="https://picsum.photos/400/300?random=4" alt="Quiet Meadow Cottage" class="card-img">
+                <div class="card-info">
+                    <h3 class="farmhouse-name">Quiet Meadow Cottage</h3>
+                    <p class="farmhouse-price">₹7,000 / night</p>
+                    <div class="farmhouse-rating">
+                        <span class="rating-stars">4.7 ⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
