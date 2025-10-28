@@ -4,146 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FarmStay | Find & Book Farmhouses</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <i class="fas fa-leaf logo-icon"></i> FarmStay
+    <div class="top-announcement-bar">
+        <a href="#">Download App</a>
+        <a href="#">Track Order</a>
+        <a href="#">Help</a>
+        <span class="top-phone">1800-XXX-XXXX</span>
+        <a href="#" class="top-auth">Sign up with email <i class="fas fa-envelope"></i></a>
+        <a href="#" class="top-auth">Continue with Google <i class="fab fa-google"></i></a>
+    </div>
+
+    <header class="main-header">
+        <div class="header-main-row">
+            <div class="logo">
+                <i class="fas fa-leaf logo-icon"></i> FarmStay
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="What are you looking for?">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <nav class="header-nav-icons">
+                <a href="#"><i class="fas fa-heart"></i><span>Contact</span></a>
+                <a href="#"><i class="fas fa-phone-alt"></i><span>Wishlist</span></a>
+                <a href="#"><i class="fas fa-user"></i><span>Account</span></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i><span>Cart</span></a>
+            </nav>
         </div>
-        <nav class="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">Farmhouses</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <button class="login-btn">Login</button>
+        <nav class="secondary-nav">
+            <a href="#" class="active">All Farmhouses</a>
+            <a href="#">Private Villas</a>
+            <a href="#">Pool Farmhouses</a>
+            <a href="#">Pet-Friendly</a>
+            <a href="#">Luxury Stays</a>
+            <a href="#" class="best-sellers">Best Sellers</a>
+            <button class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
-        <button class="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+                <a href="#">Home</a>
+                <a href="#">Farmhouses</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <button class="login-btn">Login</button>
+                <div class="mobile-filters-toggle">
+                    <button class="toggle-filters-btn">Show Filters</button>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Find & Book Beautiful Farmhouses Near You <span class="emoji">🌿</span></h1>
-            <p class="hero-subtitle">Escape the city — enjoy peace, greenery, and comfort.</p>
-        </div>
+    <main>
+        <section class="hero-banner">
+            <div class="banner-content">
+                <p class="limited-offer">Limited Time Offer</p>
+                <h2 class="banner-title">Book Your Dream Farmhouse</h2>
+                <p class="banner-subtitle">Get up to 30% off on all bookings this season</p>
+                <div class="banner-actions">
+                    <button class="btn primary-btn">Explore Now</button>
+                    <button class="btn secondary-btn">Learn More</button>
+                </div>
+            </div>
+            <div class="banner-image">
+                <img src="https://picsum.photos/800/600?random=field" alt="Green field">
+            </div>
+        </section>
 
-        <div class="booking-card">
-            <form class="booking-form">
-                <div class="input-group full-width">
-                    <i class="fas fa-map-marker-alt input-icon"></i>
-                    <input type="text" placeholder="Enter city or region">
-                </div>
+        <section class="breadcrumbs">
+            Home / All Farmhouses
+        </section>
 
-                <div class="input-group half-width">
-                    <i class="fas fa-home input-icon"></i>
-                    <select>
-                        <option value="" disabled selected hidden>Farmhouse Type</option>
-                        <option value="villa">Private Villa</option>
-                        <option value="pool">Pool Farmhouse</option>
-                        <option value="pet">Pet-Friendly Stay</option>
-                        <option value="luxury">Luxury Farmhouse</option>
-                    </select>
+        <section class="farmhouse-listing-section">
+            <aside class="filter-panel">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <h4>Location</h4>
+                    <label><input type="checkbox" name="location" value="Lonavala">Lonavala</label>
+                    <label><input type="checkbox" name="location" value="Alibaug">Alibaug</label>
+                    <label><input type="checkbox" name="location" value="Karjat">Karjat</label>
+                    <label><input type="checkbox" name="location" value="Igatpuri">Igatpuri</label>
+                    <label><input type="checkbox" name="location" value="Nashik">Nashik</label>
                 </div>
-                
-                <div class="input-group date-picker">
-                    <i class="fas fa-calendar-alt input-icon"></i>
-                    <label for="checkin" class="sr-only">Check-in Date</label>
-                    <input type="text" id="checkin" placeholder="Check-in Date" onfocus="(this.type='date')">
+                <div class="filter-group">
+                    <h4>Farmhouse Type</h4>
+                    <label><input type="checkbox" name="type" value="Private Villa">Private Villa</label>
+                    <label><input type="checkbox" name="type" value="Pool Farmhouse">Pool Farmhouse</label>
+                    <label><input type="checkbox" name="type" value="Pet-Friendly Stay">Pet-Friendly Stay</label>
+                    <label><input type="checkbox" name="type" value="Cottage">Cottage</label>
                 </div>
-                
-                <div class="input-group date-picker">
-                    <i class="fas fa-calendar-alt input-icon"></i>
-                    <label for="checkout" class="sr-only">Check-out Date</label>
-                    <input type="text" id="checkout" placeholder="Check-out Date" onfocus="(this.type='date')">
+                <div class="filter-group">
+                    <h4>Amenities</h4>
+                    <label><input type="checkbox" name="amenity" value="WiFi">WiFi</label>
+                    <label><input type="checkbox" name="amenity" value="Parking">Parking</label>
+                    <label><input type="checkbox" name="amenity" value="Garden">Garden</label>
+                    <label><input type="checkbox" name="amenity" value="Kitchen">Kitchen</label>
+                    <label><input type="checkbox" name="amenity" value="AC">AC</label>
                 </div>
-                
-                <div class="input-group half-width">
-                    <i class="fas fa-users input-icon"></i>
-                    <select>
-                        <option value="" disabled selected hidden>Guests</option>
-                        <option value="2">2 Guests</option>
-                        <option value="4">4 Guests</option>
-                        <option value="6">6+ Guests</option>
-                    </select>
+                <div class="filter-group">
+                    <h4>Rating</h4>
+                    <label><input type="checkbox" name="rating" value="4.5">4.5 & above</label>
+                    <label><input type="checkbox" name="rating" value="4.0">4.0 & above</label>
+                    <label><input type="checkbox" name="rating" value="3.5">3.5 & above</label>
+                    <label><input type="checkbox" name="rating" value="3.0">3.0 & above</label>
                 </div>
+            </aside>
 
-                <div class="input-group full-width budget-range">
-                    <label>Budget Range: ₹5,000 – ₹20,000</label>
-                    <input type="range" min="5000" max="20000" value="12500">
-                </div>
-                
-                <div class="amenities-group full-width">
-                    <label>Amenities:</label>
-                    <div class="amenity-chips">
-                        <span class="chip" data-amenity="pool">Pool</span>
-                        <span class="chip" data-amenity="bbq">BBQ</span>
-                        <span class="chip" data-amenity="wifi">WiFi</span>
-                        <span class="chip" data-amenity="parking">Parking</span>
-                        <span class="chip" data-amenity="garden">Garden</span>
-                        <span class="chip" data-amenity="kitchen">Kitchen</span>
+            <div class="results-container">
+                <div class="results-header">
+                    <p>Showing 6 results</p>
+                    <div class="sort-by">
+                        <label for="sort">Sort by:</label>
+                        <select id="sort">
+                            <option value="recommended">Recommended</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Rating: High to Low</option>
+                        </select>
                     </div>
                 </div>
 
-                <button type="submit" class="search-btn full-width">Find Farmhouses</button>
-            </form>
-        </div>
+                <div class="farmhouse-grid">
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm1" alt="GreenField Luxury Villa">
+                            <span class="discount-tag">17% OFF</span>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>GreenField Luxury Villa</h3>
+                            <p class="location">Lonavala, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.8 ⭐</span> <span class="reviews">124 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="old-price">₹10,000</span>
+                                <span class="current-price">₹8,500</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm2" alt="Serenity Pool Estate">
+                            <span class="new-tag">NEW</span>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Serenity Pool Estate</h3>
+                            <p class="location">Alibaug, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.9 ⭐</span> <span class="reviews">98 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="old-price">₹15,000</span>
+                                <span class="current-price">₹13,500</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm3" alt="Rustic Garden Farmhouse">
+                             <span class="discount-tag">15% OFF</span>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Rustic Garden Farmhouse</h3>
+                            <p class="location">Karjat, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.7 ⭐</span> <span class="reviews">155 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="old-price">₹9,000</span>
+                                <span class="current-price">₹7,650</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm4" alt="Countryside Haven Resort">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Countryside Haven Resort</h3>
+                            <p class="location">Igatpuri, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.6 ⭐</span> <span class="reviews">87 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="current-price">₹10,000</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm5" alt="Paradise Valley Villa">
+                            <span class="new-tag">NEW</span>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Paradise Valley Villa</h3>
+                            <p class="location">Lonavala, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.9 ⭐</span> <span class="reviews">203 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="old-price">₹22,000</span>
+                                <span class="current-price">₹18,000</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+
+                    <div class="farmhouse-listing-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos/400/250?random=farm6" alt="Green Meadows Estate">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Green Meadows Estate</h3>
+                            <p class="location">Nashik, Maharashtra</p>
+                            <div class="rating-info">
+                                <span class="stars">4.5 ⭐</span> <span class="reviews">142 reviews</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="current-price">₹11,000</span> <span class="per-night">per night</span>
+                            </div>
+                            <button class="book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-badges-section">
+            <div class="trust-badge">
+                <i class="fas fa-check-circle badge-icon"></i>
+                <h4>Best Price Guarantee</h4>
+                <p>Get the best deals with our price match promise</p>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-phone-alt badge-icon"></i>
+                <h4>24/7 Support</h4>
+                <p>Our team is available round the clock to help you</p>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-lock badge-icon"></i>
+                <h4>Secure Booking</h4>
+                <p>Your data and payment information is safe with us</p>
+            </div>
+        </section>
     </main>
 
-    <section class="featured-section">
-        <h2>Featured FarmStays</h2>
-        <div class="featured-grid">
-            
-            <div class="farmhouse-card">
-                <img src="https://picsum.photos/400/300?random=1" alt="The Willow Creek Retreat" class="card-img">
-                <div class="card-info">
-                    <h3 class="farmhouse-name">The Willow Creek Retreat</h3>
-                    <p class="farmhouse-price">₹8,500 / night</p>
-                    <div class="farmhouse-rating">
-                        <span class="rating-stars">4.8 ⭐⭐⭐⭐</span>
-                    </div>
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-column about-farmstay">
+                <h4>About FarmStay</h4>
+                <p>Your trusted platform for booking beautiful farmhouses and countryside getaways.</p>
+                <button class="manage-cookies">Manage cookies or opt out</button>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>For Partners</h4>
+                <ul>
+                    <li><a href="#">List Your Property</a></li>
+                    <li><a href="#">Partner Portal</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>Email: info@farmstay.com</p>
+                <p>Phone: 1800-XXX-XXXX</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-
-            <div class="farmhouse-card">
-                <img src="https://picsum.photos/400/300?random=2" alt="Poolside Country Home" class="card-img">
-                <div class="card-info">
-                    <h3 class="farmhouse-name">Poolside Country Home</h3>
-                    <p class="farmhouse-price">₹10,200 / night</p>
-                    <div class="farmhouse-rating">
-                        <span class="rating-stars">4.5 ⭐⭐⭐⭐</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="farmhouse-card">
-                <img src="https://picsum.photos/400/300?random=3" alt="Sunrise Valley Farm" class="card-img">
-                <div class="card-info">
-                    <h3 class="farmhouse-name">Sunrise Valley Farm</h3>
-                    <p class="farmhouse-price">₹6,150 / night</p>
-                    <div class="farmhouse-rating">
-                        <span class="rating-stars">4.9 ⭐⭐⭐⭐</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="farmhouse-card desktop-only">
-                <img src="https://picsum.photos/400/300?random=4" alt="Quiet Meadow Cottage" class="card-img">
-                <div class="card-info">
-                    <h3 class="farmhouse-name">Quiet Meadow Cottage</h3>
-                    <p class="farmhouse-price">₹7,000 / night</p>
-                    <div class="farmhouse-rating">
-                        <span class="rating-stars">4.7 ⭐⭐⭐⭐</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
+        <div class="footer-bottom">
+            <p>&copy; 2023 FarmStay.com. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
