@@ -1,0 +1,438 @@
+:root {
+    /* Color Palette */
+    --color-primary-green: #6B8E23; /* Olive Green - CTAs, accents */
+    --color-secondary-green: #A0B788; /* Soft Sage Green - subtle backgrounds */
+    --color-cream: #F8F8F0; /* Main background, card backgrounds */
+    --color-brown-taupe: #8B7355; /* Text, borders, shadows */
+    --color-dark-green: #3C5A2D; /* Logo, main headings */
+    --color-accent-yellow: #FFD700; /* Star ratings */
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing & Radii */
+    --spacing-lg: 3rem;
+    --spacing-md: 1.5rem;
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-brown-taupe);
+    background-color: var(--color-cream);
+    line-height: 1.6;
+}
+
+/* Helper for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem var(--spacing-lg);
+    background-color: rgba(248, 248, 240, 0.95); /* Semi-transparent cream */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-dark-green);
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    color: var(--color-primary-green);
+    margin-right: 0.5rem;
+}
+
+.nav-menu a {
+    color: var(--color-brown-taupe);
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    font-weight: 600;
+}
+
+.login-btn {
+    background-color: var(--color-secondary-green);
+    color: var(--color-cream);
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: var(--color-primary-green);
+}
+
+.hamburger-menu {
+    display: none; /* Hide on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-dark-green);
+    cursor: pointer;
+}
+
+/* --- Hero Section & Background --- */
+.hero-section {
+    position: relative;
+    height: 90vh; /* Adjust as needed */
+    padding-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+/* Placeholder for the countryside image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://picsum.photos/1600/1000?random=10') center / cover no-repeat;
+    filter: blur(2px);
+    z-index: -2;
+}
+
+/* Overlay to ensure readability */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(248, 248, 240, 0.7); /* Cream overlay */
+    z-index: -1;
+}
+
+.hero-content {
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--color-dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-brown-taupe);
+}
+
+.emoji {
+    font-size: 1em;
+}
+
+/* --- Booking Card --- */
+.booking-card {
+    background-color: var(--color-cream);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: var(--spacing-lg);
+    width: 90%;
+    max-width: 900px;
+}
+
+.booking-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.input-group {
+    position: relative;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.input-group.full-width {
+    flex-basis: 100%;
+}
+
+/* Input/Select Styling */
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem; /* Extra padding for icon */
+    border: 1px solid var(--color-brown-taupe);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-dark-green);
+    background-color: transparent;
+    appearance: none; /* Remove default arrow on select/date */
+}
+
+.input-group::after {
+    content: '\f0d7'; /* Down arrow for dropdown */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-brown-taupe);
+}
+
+.input-group.date-picker::after {
+    content: none; /* Remove arrow from date pickers */
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-brown-taupe);
+    z-index: 2;
+}
+
+/* Budget Range Slider Styling */
+.budget-range label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.budget-range input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: var(--color-secondary-green);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0; /* Override padding from input selector */
+}
+
+.budget-range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary-green);
+    border-radius: 50%;
+    border: 2px solid var(--color-cream);
+    margin-top: -6px;
+    cursor: pointer;
+}
+
+/* Amenities Chips */
+.amenities-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.amenity-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.chip {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--color-brown-taupe);
+    background-color: var(--color-secondary-green);
+    color: var(--color-dark-green);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.chip.active {
+    background-color: var(--color-primary-green);
+    color: var(--color-cream);
+    border-color: var(--color-primary-green);
+}
+
+/* Search Button */
+.search-btn {
+    background-color: var(--color-primary-green);
+    color: var(--color-cream);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(107, 142, 35, 0.4);
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: var(--color-dark-green);
+}
+
+/* --- Featured Section --- */
+.featured-section {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+    text-align: center;
+}
+
+.featured-section h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--color-dark-green);
+    margin-bottom: var(--spacing-lg);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.farmhouse-card {
+    background-color: var(--color-cream);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: var(--spacing-md);
+}
+
+.farmhouse-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-dark-green);
+    margin-bottom: 0.25rem;
+}
+
+.farmhouse-price {
+    font-weight: 600;
+    color: var(--color-primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.farmhouse-rating .rating-stars {
+    color: var(--color-brown-taupe);
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem var(--spacing-md);
+    }
+    
+    .nav-menu {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-cream);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-md) 0;
+        z-index: 90;
+    }
+    
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu a, .nav-menu .login-btn {
+        margin: 0.5rem var(--spacing-lg);
+        text-align: left;
+    }
+
+    .login-btn {
+        width: calc(100% - 2 * var(--spacing-lg));
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .booking-card {
+        padding: var(--spacing-md);
+        width: 95%;
+    }
+
+    .booking-form {
+        flex-direction: column;
+    }
+
+    .input-group {
+        min-width: unset;
+        flex-basis: 100%;
+    }
+
+    .input-group.half-width {
+        flex-basis: 100%; /* Make everything full-width on mobile */
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .farmhouse-card.desktop-only {
+        display: none; /* Hide the fourth card on mobile */
+    }
+}
